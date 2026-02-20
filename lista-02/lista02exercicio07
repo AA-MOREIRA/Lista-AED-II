@@ -1,0 +1,74 @@
+/*
+Crie um programa no qual o usuário deverá informar o nome e o tipo de cinco animais de estimação. 
+O programa deverá exibir na tela para o usuário quantos cachorros, gatos e peixes foram informados.
+Regras que deverão ser seguidas para a implementação do algoritmo:
+
+- Os únicos tipos de animais válidos são cachorro, gato e peixe.
+- Caso seja informado um tipo diferente o programa deverá definir o tipo do animal como Peixe.
+- É obrigatório criar uma classe para representar o Animal.
+- A classe deverá possuir dois dados privados (propriedades) para representar as características do animal.
+- A classe deverá possuir métodos de acesso para permitir que o usuário armazene/leia os dados dos dois dados privados (propriedades).
+*/
+
+using System;
+
+class Animal
+{
+	string nome;
+	string tipo;
+	
+	void SetNome(string nome)
+	{
+		this.nome = nome;
+	}
+	
+	void SetTipo(string tipo)
+	{
+		tipo = tipo.ToLower();
+		if (tipo != "cachorro" && tipo != "gato" && tipo != "peixe")
+			this.tipo = "peixe";
+		else
+			this.tipo = tipo;
+	}
+	
+	string GetNome()
+	{
+		return nome;
+	}
+	
+	string GetTipo()
+	{
+		return tipo;
+	}
+	
+	static void Main()
+	{
+		Animal[] animais = new Animal[5];
+		int cachorros = 0, gatos = 0, peixes = 0;
+		
+		for (int i = 0; i < 5; i++)
+		{
+			animais[i] = new Animal();
+			
+			Console.WriteLine("Nome do animal:");
+			string nome = Console.ReadLine();
+			
+			Console.WriteLine("Espécie do animal:");
+			string tipo = Console.ReadLine();
+			
+			animais[i].SetNome(nome);
+			animais[i].SetTipo(tipo);
+			
+			if (animais[i].GetTipo() == "cachorro")
+				cachorros++;
+			else if (animais[i].GetTipo() == "gato")
+				gatos++;
+			else
+				peixes++;
+		}
+		
+		Console.WriteLine("Cachorros:" + cachorros);
+		Console.WriteLine("Gatos:" + gatos);
+		Console.WriteLine("Peixes:" + peixes);
+	}
+}

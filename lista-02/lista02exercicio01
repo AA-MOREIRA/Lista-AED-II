@@ -1,0 +1,18 @@
+// Nível Fácil
+// Crie um programa que exiba o seu nome na tela 100 vezes.
+
+using System;
+
+class Program
+{
+	static void Main()
+	{
+		Console.WriteLine("Seu nome:");
+		string nome = Console.ReadLine();
+		
+		for (int i = 1; i <= 100; i++)
+		{
+			Console.WriteLine($"{i} - {nome}");
+		}
+	}
+}
