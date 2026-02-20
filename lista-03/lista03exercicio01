@@ -1,0 +1,25 @@
+class Veiculo
+{
+	int quantOcupantes;
+	int quantRodas;
+	double capacdTanque;
+	double nivelTanquePerc;
+	double consumo;
+	double kmAtual;
+	
+	Veiculo(int quantOcupantes, int quantRodas, double capacdTanque, double nivelTanquePerc, double consumo, double kmAtual)
+	{
+		this.quantOcupantes = quantOcupantes;
+		this.quantRodas = quantRodas;
+		this.capacdTanque = capacdTanque;
+		this.nivelTanquePerc = nivelTanquePerc;
+		this.consumo = consumo;
+		this.kmAtual = kmAtual;
+	}
+	
+	double calculoAutonomia()
+	{
+		double litDispon = capacdTanque * (nivelTanque / 100.0);
+		return litDispon * consumo;
+	}
+}
